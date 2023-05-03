@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container bg-slate-900 h-100 mb-16">
+  <h1 class="text-4xl text-center mt-5 text-white">Diabetes detection </h1>
+  <form action="/diabetes"  method="post" class="mt-4  ">
+    <div class="  px-10 py-10 w-[50%] mx-auto  rounded overflow-hidden shadow-xl bg-white grid grid-cols-2 gap-4">
+      {% if result %}
+      {% if result=='Yes' %}
+        <div class="col-span-2  px-3 py-3 bg-red-500 text-white">
+          <h1 class="text-white"> Diabetes {{ result }} </h1>
+        </div>
+      {% else %}
+        <div class="col-span-2 px-3 py-3 bg-green-500 text-white">
+          <h1 class="text-white"> Diabetes {{ result }} </h1>
+        </div>
+      {% endif %}
+    {% endif %}
+      <input required name="Pregenesy"  class="focus:border-blue-400 block w-full px-3 py-2 border-2  focus:outline-none " min="0" max="10" type="number" placeholder="Pregenesy No." />
+      <input required name="Glucose" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " min="30" max="200" type="number" placeholder="Glucose Level in 30 to 200" />
+      <input required name="BloodPressure" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " min="35" max="108" type="number" placeholder="BloodPressure Between 35 to 108" />
+      <input required name="SkinThickness" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " min="0" max="80" type="number" placeholder="SkinThickness from 0 to 80" />
+      <input required name="Insuline" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " min="0" max="320" type="number" placeholder="Insuline Level from 0 to 320" />
+      <input required name="BMI" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " min="13" max="50" type="number" placeholder="BMI between 13 to 50" />
+      <input required name="DiabetesPedigreeFunction" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " step="any" type="number" placeholder="DiabetesPedigree between 0 to 1.2" />
+      <input required name="Age" class=" focus:border-blue-400  block w-full px-3 py-2 border-2  focus:outline-none " min="18" max="66" type="number" placeholder="Age Between 18 to 66" />
+      <button type="submit" class=" focus:border-blue-400 col-span-2  w-full block py-3 px-6 hover:bg-blue-400 transition-all duration-200 text-white bg-blue-300">See Result</button>
+     
+    </div>
+  </form>
+</div>
+
+<!-- Details of disease -->
+<!-- <main>
+  <div class="left" data-aos="zoom-in">
+     <h1>Hey! Hope you are going good</h1>
+     <h2>Don't wait, Invistigate </h2>
+     <h3>Get a diagnosis by clicking the button below </h3>
+
+     <li class="mul-section">
+        <a href="#">DiagnoHealth <i class="fa-solid fa-caret-down"></i></a>
+        <ul class="drop-down">
+           <li><a href="/HTML/form.html">Cancer</a></li>
+           <li><a href="#">Diabities</a></li>
+           <li><a href="#">Kidney</a></li>
+           <li><a href="https://fontawesome.com/icons/xmark?f=classic&s=solid">Liver</a></li>
+        </ul>
+     </li>
+
+  
+
+  </div>
+  <div class="right">
+     <img data-aos="zoom-in" class="right-img" style="background-image: none;" src="{{ url_for('static', path='/Imgs/gifs.gif') }}" alt="">
+  </div>
+</main> -->
+
+{% endblock content %}
